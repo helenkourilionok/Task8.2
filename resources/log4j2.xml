@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" xmlns="http://logging.apache.org/log4j/2.0/config">
+    <Appenders>
+        <File name="File" fileName="logs/filmstore_log.log">
+		      <PatternLayout>
+		        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+		      </PatternLayout>
+		</File>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name= "by.training.filmstore.dao" level="WARN" additivity="true">
+           <AppenderRef ref="File"/>
+        </Logger>
+        <!-- Root Logger -->
+        <Root level="ERROR">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
